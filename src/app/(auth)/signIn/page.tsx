@@ -7,7 +7,7 @@ import Logo from "../../../assets/logo-black-white.png";
 const SignIn = () => {
     return (
         <>
-            <div className="min-h-screen  grid content-center">
+            <div className="min-h-screen grid content-center">
                 <div className="flex justify-center mb-4">
                     <Image src={Logo} alt="Reviewlify-logo" width={250} height={250} />
                 </div>
