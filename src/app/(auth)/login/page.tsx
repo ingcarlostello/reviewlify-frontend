@@ -1,13 +1,14 @@
 // @Nextjs
-import Image from "next/image";
+import Image from "next/image"
+import Link from 'next/link';
 
 // @Assets
 import Logo from "../../../assets/logo-black-white.png";
 
-// @Components
+// Components
 import GoogleButtom from "@/components/GoogleButtom";
 
-const SignOut = () => {
+const LogIn = () => {
     return (
         <>
             <div className="min-h-screen grid content-center">
@@ -37,23 +38,13 @@ const SignOut = () => {
                                     className="input input-bordered"
                                 />
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Repetir Password</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    placeholder="repetir password"
-                                    className="input input-bordered"
-                                />
-                            </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Registrar</button>
+                                <button className="btn btn-primary">Login</button>
                             </div>
                             <div className="mt-8">
                                 <fieldset className="border-t border-slate-300 mb-5">
                                     <legend className="mx-auto px-4 italic">
-                                        Registrarse con:
+                                        Loguearse con:
                                     </legend>
                                 </fieldset>
                                 <div className="text-center">
@@ -63,9 +54,15 @@ const SignOut = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className="flex justify-center mt-10">
+                    <p>
+                        No tienes una cuenta? <Link className="link" href="/register">Regístrate</Link>
+                    </p>
+                </div>
             </div>
         </>
     );
 };
 
-export default SignOut;
+export default LogIn;
