@@ -14,7 +14,8 @@ import Logo from "../../../assets/logo-black-white.png";
 import GoogleButtom from "@/components/GoogleButtom";
 
 const Register = () => {
-    const { handleChange, username, email, password, handleUserRegister, repeatPassword, setRepeatPassword } = RegisterViewModel();   
+    const { handleChange, username, email, password, handleUserRegister, repeatPassword, setRepeatPassword, validateForm } = RegisterViewModel(); 
+    
 
     return (
         <>
@@ -27,51 +28,51 @@ const Register = () => {
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Nombre Empresa</span>
+                                    <span className="label-text">Nombre Usuario/Empresa *</span>
                                 </label>
                                 <input
-                                    className="input input-bordered"
+                                    className={`${username ? 'input input-bordered' : validateForm}`}                                         
                                     name="username"
                                     onChange={handleChange}
                                     placeholder="Nombre Empresa"
                                     type="text"
-                                    value={username}
+                                    value={username.trim().toLowerCase()}
                                 />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text">Email *</span>
                                 </label>
                                 <input
-                                    className="input input-bordered"
+                                    className={`${email ? 'input input-bordered' : validateForm}`}  
                                     name="email"
                                     onChange={handleChange}
-                                    placeholder="email"
+                                    placeholder="Email"
                                     type="text"
                                     value={email}
                                 />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text">Password *</span>
                                 </label>
                                 <input
-                                    className="input input-bordered"
+                                    className={`${password ? 'input input-bordered' : validateForm}`}  
                                     name="password"
                                     onChange={handleChange}
-                                    placeholder="password"
-                                    type="text"
+                                    placeholder="Password"
+                                    type="password"
                                     value={password}
                                 />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Repetir Password</span>
+                                    <span className="label-text">Repetir Password *</span>
                                 </label>
                                 <input
-                                    type="text"
-                                    placeholder="repetir password"
-                                    className="input input-bordered"
+                                    type="password"
+                                    placeholder="Repetir password"
+                                    className={`${repeatPassword ? 'input input-bordered' : validateForm}`}  
                                     name="repeatPassword"
                                     value={repeatPassword}
                                     onChange={e => setRepeatPassword(e.target.value)}
