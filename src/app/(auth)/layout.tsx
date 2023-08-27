@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import AuthProvider from "@/context/AuthProvider";
 
 import { Toaster } from "react-hot-toast";
+import { SessionProvider } from "next-auth/react";
 
 export default function Layout({ children }: any) {
     const [windowSize, setWindowSize] = useState({ width: 0 });
@@ -26,8 +27,10 @@ export default function Layout({ children }: any) {
     return (
         <>
             <AuthProvider>
-                <main>{children}</main>
-                <Toaster position={toasterPosition} reverseOrder={false} />
+                <SessionProvider>
+                    <main>{children}</main>
+                    <Toaster position={toasterPosition} reverseOrder={false} />
+                </SessionProvider>
             </AuthProvider>
         </>
     );

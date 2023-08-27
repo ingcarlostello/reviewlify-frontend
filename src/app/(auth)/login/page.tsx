@@ -1,14 +1,22 @@
-// @Nextjs
-import Image from "next/image"
-import Link from 'next/link';
+"use client";
 
-// @Assets
-import Logo from "../../../assets/logo-black-white.png";
+// @Vier model
+import LoginViewModel from "./Login.viewModel";
 
 // Components
 import GoogleButtom from "@/components/GoogleButtom";
 
+// @Nextjs
+import Image from "next/image";
+import Link from "next/link";
+
+// @Assets
+import Logo from "../../../assets/logo-black-white.png";
+
+
 const LogIn = () => {
+    const { handleSubmit, loginData, setLoginData, validateForm } = LoginViewModel();
+
     return (
         <>
             <div className="min-h-screen grid content-center">
@@ -25,7 +33,13 @@ const LogIn = () => {
                                 <input
                                     type="text"
                                     placeholder="email"
-                                    className="input input-bordered"
+                                    className={`${loginData.email ? "input input-bordered" : validateForm
+                                        }`}
+                                    //className="input input-bordered"
+                                    value={loginData.email.trim().toLowerCase()}
+                                    onChange={({ target }) =>
+                                        setLoginData({ ...loginData, email: target.value })
+                                    }
                                 />
                             </div>
                             <div className="form-control">
@@ -33,13 +47,24 @@ const LogIn = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input
-                                    type="text"
+                                    type="password"
                                     placeholder="password"
-                                    className="input input-bordered"
+                                    className={`${loginData.password ? "input input-bordered" : validateForm
+                                        }`}
+                                    //className="input input-bordered"
+                                    value={loginData.password}
+                                    onChange={({ target }) =>
+                                        setLoginData({ ...loginData, password: target.value })
+                                    }
                                 />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button
+                                    onClick={(e) => handleSubmit(e)}
+                                    className="btn btn-primary"
+                                >
+                                    Login
+                                </button>
                             </div>
                             <div className="mt-8">
                                 <fieldset className="border-t border-slate-300 mb-5">
@@ -57,7 +82,10 @@ const LogIn = () => {
 
                 <div className="flex justify-center mt-10">
                     <p>
-                        No tienes una cuenta? <Link className="link" href="/register">Regístrate</Link>
+                        No tienes una cuenta?{" "}
+                        <Link className="link" href="/register">
+                            Regístrate
+                        </Link>
                     </p>
                 </div>
             </div>

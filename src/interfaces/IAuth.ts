@@ -16,3 +16,9 @@ export interface IAuthContextPros {
     errorMessage:string;
     setErrorMessage:any;
 }
+
+export interface ILoginCredentials {
+    email:string;
+    password:string;
+}
+

@@ -1,6 +1,9 @@
 "use client"
 import { useReducer, useState } from "react";
 
+// @Next Auth
+import { SessionProvider } from "next-auth/react"
+
 // @context
 import { AuthContext } from "./AuthContext";
 
@@ -29,7 +32,9 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
                 setErrorMessage,
             }}
         >
-            {children}
+   
+                {children}
+     
         </AuthContext.Provider>
     );
 };

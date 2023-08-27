@@ -18,7 +18,8 @@ export async function POST(request: Request) {
                 body: JSON.stringify({
                     username,
                     email,
-                    password: hashedPassword,
+                    //password: hashedPassword,
+                    password
                 }),
             }
         );

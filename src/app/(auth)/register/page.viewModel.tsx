@@ -4,7 +4,7 @@ import { ChangeEvent, useState } from "react";
 import { IUserData } from "@/interfaces/IUserData";
 
 // @Constants
-import { REGISTER_ENDPOINT } from "@/constants/urls";
+import {REGISTER_ENDPOINT} from "@/constants/urls";
 
 // @React Toaster
 import toast from "react-hot-toast";
@@ -36,7 +36,9 @@ const RegisterViewModel = () => {
             return toast.error("Por favor, rellena todos los campos");
         }
 
-        if ((userData.password && !repeatPassword) || (!userData.password && !repeatPassword)
+        if (
+            (userData.password && !repeatPassword) ||
+            (!userData.password && !repeatPassword)
         ) {
             return toast.error("Por favor, rellena todos los campos");
         } else if (userData.password !== repeatPassword) {
@@ -51,7 +53,7 @@ const RegisterViewModel = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(userData),
-            })
+            });
 
             const data = await response.json();
             console.log("data", data);
@@ -82,6 +84,7 @@ const RegisterViewModel = () => {
     return {
         // functions
         handleChange,
+
         handleUserRegister,
         setRepeatPassword,
 
