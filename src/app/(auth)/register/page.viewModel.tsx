@@ -10,6 +10,9 @@ import {REGISTER_ENDPOINT} from "@/constants/urls";
 import toast from "react-hot-toast";
 
 const RegisterViewModel = () => {
+
+
+
     const [userData, setUserData] = useState<IUserData>({
         username: "",
         email: "",

@@ -54,7 +54,7 @@ const LoginViewModel = () => {
         }
     };
 
-    console.log("errorLogin", errorLogin);
+
     return {
         // functios
         handleSubmit,

@@ -4,7 +4,7 @@
 import RegisterViewModel from "./page.viewModel";
 
 // @Constants
-import { REGISTER_WITH_GOOGLE } from "@/constants/urls";
+//import { REGISTER_WITH_GOOGLE } from "@/constants/urls";
 
 // @Nextjs
 import Image from "next/image";
@@ -16,8 +16,15 @@ import Logo from "../../../assets/logo-black-white.png";
 // @Components
 import GoogleButtom from "@/components/GoogleButtom";
 
+import { useParams, useSearchParams } from 'next/navigation'
+
 const Register = () => {
     const { handleChange, username, email, password, handleUserRegister, repeatPassword, setRepeatPassword, validateForm } = RegisterViewModel(); 
+
+    const REGISTER_WITH_GOOGLE = 'http://127.0.0.1:1337/api/connect/google'
+    const REGISTER_WITH_GOOGLE2 = 'http://localhost:1337/api/connect/google'
+
+  
 
     return (
         <>
@@ -94,7 +101,7 @@ const Register = () => {
                                         Registrarse con:
                                     </legend>
                                 </fieldset>
-                                <a href={REGISTER_WITH_GOOGLE} className="text-center">
+                                <a href={REGISTER_WITH_GOOGLE2} className="text-center">
                                     <GoogleButtom />
                                 </a>
                             </div>
